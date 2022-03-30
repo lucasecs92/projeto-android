@@ -184,11 +184,12 @@ aside > h3 { /* topo da caixa */
 footer { /* rodapé */
     background-color: var(--cor5);
     color: white;
+    font-size: 0.8em;
     text-align: center;
     padding: 5px;
 }
 
-footer > p > a { /* links dentro do rodapé */
+footer > p > a { /* links dentro do rodapé, pode ser representado também por (footer a {}) */ 
     color: white;
     font-weight: bolder;
     text-decoration: none;
