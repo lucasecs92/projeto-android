@@ -1,0 +1,200 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap'); /* regra para fonte do google fonts */
+
+@font-face { /* regra para fonte externa, baixada */
+    font-family: 'Android';
+    src: url('../fontes/idroid.otf') format('opentype'); /* format = formato da fonte */
+    font-weight: normal;
+}
+
+/* raiz da árvore do nosso documento, tudo que eu definir nessa pseudo-classe especial, vai servir para o documento inteiro, e básicamente posso criar váriaveis dentro, é a área principal onde posso declarar váriaveis globais */
+:root { /* toda váriavel no css começa com -- junto com o nome que definir para ela */
+    --cor0: #e5ebc5; /* paleta de cor monocromática */
+    --cor1: #83e1ad;
+    --cor2: #3ddc84;
+    --cor3: #2fa866;
+    --cor4: #1a5c37;
+    --cor5: #063d1e;
+
+    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+    --fonte-destaque: 'Bebas Neue', cursive; /* google fonts*/
+    --fonte-android: 'Android', cursive; /* Android é fonte externa, cursive é a genérica */
+}
+
+* { /* seletor global, seleciona todos os elementos do html (h1, h2, h3, p..) */
+    margin: 0px; 
+    padding: 0px;
+}
+
+body {
+    background-color: var(--cor0);
+    font-family: var(--fonte-padrao);
+}
+
+a.externo::after { /* todo link da classe externo */
+    content: '\00A0\1F517'; /* adicionando o código do emoji */
+}
+
+header {
+    background-image: linear-gradient(to bottom, var(--cor3), var(--cor5) );
+    min-height: 150px; /* altura minima para exibir em qualquer tipo de dispositivo */
+    text-align: center;
+    padding-top: 40px; 
+}
+
+header > h1 {
+    color: white;
+    font-family: var(--fonte-destaque);
+    font-size: 3em;
+    font-weight: normal; /* para ficar mais fácil de ler */
+    margin-bottom: 20px; /* espaço entre o titulo e paragrafo do cabeçalho */
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.363);
+}
+
+header > p {
+    font-size: 1.2em;
+    color: white;
+    max-width: 600px; /* lárgura máxima, automaticamente ele vira um bloco */
+    padding-right: 10px;
+    padding-left: 10px;
+    margin: auto; /* centralizar o bloco */
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.363); /* sombras no texto */
+}
+
+nav {
+    background-color: var(--cor5);
+    padding: 10px;
+    box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.397);
+}
+
+nav > a {
+    color: var(--cor1);
+    padding: 10px; /* cria uma caixa com espaçamento entre os links */
+    border-radius: 5px; /* arredondar bordas */
+    text-decoration: none; /* tirar sublinhado */
+    font-weight: bold; /* negrito */
+    transition-duration: 1s; /* quando mecher o mouse por cima do menu, ele vai demorar 1 segundo de transição */
+}
+
+nav > a:hover {
+    background-color: var(--cor3);
+    color: var(--cor4);
+}
+
+main { /* adaptando na tela a área main */
+    background-color:  white;
+    min-width: 300px;
+    max-width: 1000px;
+    padding: 20px; /* para dar uma afastada entre o conteúdo e o main */
+    margin:auto; /* centralizar a caixa main */
+    margin-bottom: 30px; /* para descolar o contéudo principal do rodapé */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.493);
+    border-bottom-left-radius: 10px; /* arredondando o lado inferior esquerdo da borda*/
+    border-bottom-right-radius: 10px; /* arredondando o lado inferior direito da borda*/  
+}
+
+main h1 {
+    color: var(--cor5);
+    font-family: var(--fonte-android);
+    font-size: 1.8em;
+    font-weight: normal; /* para ficar mais fácil de ler */
+}
+
+main h2 {
+    font-family: var(--fonte-android);
+    color: var(--cor4);
+    font-size: 1.3em;
+    font-weight: normal; /* para ficar mais fácil de ler */
+    background-image: linear-gradient(to right, var(--cor1), transparent); /* criando gradiente de uma cor para o transparente */
+    text-indent: 8px; /* um espaçamento para direita */
+}
+
+main p { /* configurando parágrafos */
+    margin: 15px 0px; 
+    text-align: justify; /* alinhando texto justificando */
+    text-indent: 30px; /* recuo no inicio do parágrafo */
+    line-height: 2em; /* altura da linha, muda o espaçamento entre linhas */
+}
+
+main strong { /* configurando os textos em destaque */
+    color: var(--cor4);
+}
+
+main a { /* configurando formato dos links */
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--cor5);
+    background-color: var(--cor1);
+    padding: 2px 6px; /* em cima e na lateral do background */
+}
+
+main a:hover {
+    text-decoration: underline;
+    color: var(--cor4);
+}
+
+main img {
+    width: 100%;
+}
+
+main img.pequena { /* melhorando e ajustando a resolução da imagem */
+    max-width: 350px; /* tamanho máximo de largura*/
+    display: block; /* caixa box-level */
+    margin: auto; /* centralizar */
+}
+
+div.video {
+    background-color: var(--cor5);
+    margin: 0px -20px 30px -20px; /* 0px em cima, -20px na direita, 30px em baixo, -20px na esquerda */
+    padding: 20px;
+    padding-bottom: 57%; /* ajustando a porcentagem, consigo eliminar as barras pretas na lateral do vídeo */
+    position: relative;
+}
+
+div.video > iframe { /* ajustes de tamanho da janela de video do yt */
+    position: absolute; 
+    top: 5%; 
+    left: 5%; 
+    width: 90%; /* largura */
+    height: 90%; /* altura */
+}
+
+aside { /* Conteúdo periférico */
+    background-color: var(--cor1);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.445);
+}
+
+aside > ul { /* configurando a lista em colunas */
+    list-style-type: '\2714\00A0\00A0'; /* mudando o marcador de lista padrão para um emoji */ /* \00A0 é um código para dar um pequeno espaço sem quebra entre o emoji e o marcador */
+    list-style-position: inside; /* para adicionar os marcadores da lista dentro de uma caixa  */
+    columns: 2; /* dividir a coluna em dois */
+}
+
+aside > h3 { /* topo da caixa */
+    background-color: var(--cor4);
+    color: white;
+    padding: 5px;
+    margin: -10px -10px 0px -10px; /* margem negativa em cima, direita, e esquerda para o encaixe do topo da caixa */
+    border-radius: 10px 10px 0px 0px; /* para arredondar o topo da caixa apenas em cima na esquerda, e em cima na direita */
+}
+
+footer { /* rodapé */
+    background-color: var(--cor5);
+    color: white;
+    text-align: center;
+    padding: 5px;
+}
+
+footer > p > a { /* links dentro do rodapé */
+    color: white;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: var(--cor1);
+}
